@@ -1,0 +1,11 @@
+:root{
+    --bg-header:black;
+}
+
+header{
+    height: 60px;
+    background-color: var(--bg-header);
+}
+header img{
+    padding-top: 20px;
+}
