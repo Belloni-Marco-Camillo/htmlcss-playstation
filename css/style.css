@@ -1,6 +1,6 @@
 :root {
     --acces-buttom: #363636;
-    --acquista-buttom: #CD3D0F;
+    --acquista-buttom: #cd3e0f;
     --informazioni-scopripiù-nuttom: #2D64E6;
     --sessione-nuove-uscite: #1F1F1F;
     --sessione-ps-plus: #BEBCBB;
@@ -8,14 +8,35 @@
     --footer: #00439C;
 }
 
-header .d-flex {
+.header-top {
     height: 40px;
     background-color: black;
+}
+
+.bg-light {
+    --bs-bg-opacity: 0;
+    background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity))!important
 }
 
 .logo-sony {
     height: 16px;
     margin-top: 10px;
+    margin-right: 10px;
+}
+
+.row-sup {
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.text-a-navbar {
+    color: black;
+    font-weight: 600;
+    margin: 0 50px 0 0;
+}
+
+.text-a-navbar:hover {
+    color: var(--informazioni-scopripiù-nuttom);
 }
 
 .icon {
@@ -23,11 +44,15 @@ header .d-flex {
     background-color: aqua;
 }
 
+.div-cols-title {
+    opacity: 0.6;
+    transition: transform 600ms;
+}
 
-/** .col.d-flex.justify-content-center {
-    background-color: white;
-    height: 80px;
-}*/
+.div-cols-presentation {
+    position: relative;
+    opacity: 0.6;
+}
 
 .bg-col {
     background-color: white;
@@ -94,6 +119,7 @@ header .d-flex {
     height: 80vh;
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
     background-image: url(./../img/jumbo-bg.png);
 }
 
@@ -147,17 +173,69 @@ header .d-flex {
 }
 
 .acquista-ora {
+    position: relative;
+    width: 130px;
     background-color: var(--acquista-buttom);
 }
 
+.acquista-ora::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: -6px;
+    border-radius: 25px;
+    border: 2px solid var(--acquista-buttom);
+    height: 44px;
+    width: 142px;
+    display: none;
+}
+
+.acquista-ora:hover::before {
+    display: block;
+}
+
 .esplora {
+    position: relative;
     width: 200px;
     color: var(--informazioni-scopripiù-nuttom);
-    background-color: var();
+}
+
+.esplora::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: -6px;
+    border-radius: 25px;
+    border: 2px solid var(--sessione-ps-plus);
+    height: 44px;
+    width: 211px;
+    display: none;
+}
+
+.esplora:hover::before {
+    display: block;
 }
 
 .maggiori-scopri {
+    position: relative;
+    width: 200px;
     background-color: var(--informazioni-scopripiù-nuttom);
+}
+
+.maggiori-scopri::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: -6px;
+    border-radius: 25px;
+    border: 2px solid var(--informazioni-scopripiù-nuttom);
+    height: 44px;
+    width: 211px;
+    display: none;
+}
+
+.maggiori-scopri:hover::before {
+    display: block;
 }
 
 .nuove-uscite {
@@ -204,4 +282,52 @@ header .d-flex {
     .col-group-second {
         flex-direction: column;
     }
+}
+
+
+/** animation */
+
+.div-cols-presentation::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background-color: var(--informazioni-scopripiù-nuttom);
+    transition: transform 300ms ease-in-out;
+    transform: scaleX(0);
+}
+
+.div-cols-presentation:hover::before {
+    transform: scaleX(1);
+}
+
+.div-cols-presentation:hover {
+    opacity: 1.0;
+}
+
+.div-cols-title:hover {
+    opacity: 1.0;
+    transform: translateY(-15px);
+}
+
+
+/**test */
+
+.maggiori-info {
+    position: relative;
+    border-radius: 10px;
+    margin: 30px;
+}
+
+.maggiori-info::before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: -8px;
+    height: 40px;
+    width: 140px;
+    border: 3px solid rgba(255, 255, 0, 0.39);
+    border-radius: 10px;
+    display: none;
 }
